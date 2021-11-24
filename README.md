@@ -205,14 +205,16 @@ Now that our component is complete we can use React Router to make it display on
 Back in App.js, remove the `Birds` component from the `main` and add a `Route` component. Remember that the `Route` component must be imported from `react-router-dom`.
 
 ```js
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 ```
 
-The `Route` component compares the current url in the browser address bar with its `path` attribute and if it matches it will render the corresponding component that is defined in either its `render` attribute or `component` attribute. Let's use the component attribute:
+The `Routes` component allows us to add routes to our application. The `Route` component compares the current url in the browser address bar with its `path` attribute and if it matches it will render the corresponding component that is defined in either its `render` attribute or `component` attribute. Let's use the component attribute:
 
 ```jsx
 <main>
-  <Route path="/" exact component={Birds} />
+  <Routes>
+    <Route path="/" exact component={Birds} />
+  </Routes>
 </main>
 ```
 
@@ -254,8 +256,10 @@ Next, import the component into the App.js and add a second route:
 
 ```jsx
 <main>
-  <Route path="/" exact component={Birds} />
-  <Route path="/details" component={BirdDetails} />
+  <Routes>
+    <Route path="/" component={Birds} />
+    <Route path="/details" component={BirdDetails} />
+  <Routes>
 </main>
 ```
 
