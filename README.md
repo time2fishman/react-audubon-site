@@ -321,7 +321,7 @@ The dynamic segment of a route path is called a _"param"_ in React Router. It is
 For example, the bird details routes will all start with `/details/` but after the last forward slash there will be a unique id for a specific bird. Since these are all unique and we could have hundreds or thousands of birds, we wouldn't want to have to create a Route component for each one! So we'll update our existing Route component's path to tell it to match any url in the address bar that starts with `/details` and is followed by a forward slash and then anything else.
 
 ```jsx
-<Route path="details/:id" component={BirdDetails} />
+<Route path="details/:id" element={BirdDetails} />
 ```
 
 This will mean that if we try and navigate to http://localhost:3000/details now, it will no long match the route path because there's nothing after "details" in the URL. However, if we navigate to http://localhost:3000/details/a, it now matches the _pattern_ in the `path` attribute of one of the Route components!
