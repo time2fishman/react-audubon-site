@@ -57,6 +57,10 @@ header a {
   justify-content: center;
 }
 
+.card-image img {
+  width: 100%;
+}
+
 .card-title {
   background-color: #276074;
   color: white;
