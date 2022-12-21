@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Dogs from "./components/Dogs";
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
           <a href="/">Audubon Society</a>
         </h1>
       </header>
-      <main></main>
+      <main>
+        <Dogs />
+      </main>
     </>
   );
 }
