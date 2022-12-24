@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Dogs = () => {
-  const [dogs, setDogs] = useState([]);
-  // console.log(dogs);
+const Dogs = (props) => {
+
+
 
   useEffect(() => {
     const url = `https://api.api-ninjas.com/v1/dogs?trainability=5`;
@@ -14,27 +15,28 @@ const Dogs = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        // console.log(json)
-        setDogs(json);
+        props.setDogs(json);
       })
       .catch(console.error)
   }, []);
 
   return (
-    <section className="container">
-      {dogs.map((dog, index) => {
+    <section onClick={props.handleClick} className="container">
+      {props.dogs.map((dog, index) => {
         return (
-          <div className="card" key={index}>
-          <div className="card-image">
-            <img
-              src={dog.image_link}
-              alt={dog.name}
-              />
-          </div>
-          <div className="card-title">
-            <h3>{dog.name}</h3>
-          </div>
-        </div>
+          <Link to={`details/${dog.name}`} key={index}>
+            <div className="card">
+              <div className="card-image">
+                <img
+                  src={dog.image_link}
+                  alt={dog.name}
+                />
+              </div>
+              <div className="card-title">
+                <h3>{dog.name}</h3>
+              </div>
+            </div>
+          </Link>
         )
       })}
     </section>
